@@ -9,7 +9,7 @@ pipeline {
   }
   
   triggers {
-    issueCommentTrigger('\s*please build\s*')
+    issueCommentTrigger('\\s*please build\\s*')
   }
 
   stages {

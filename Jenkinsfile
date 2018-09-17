@@ -7,6 +7,10 @@ pipeline {
   options {
     timestamps()
   }
+  
+  triggers {
+    issueCommentTrigger('\s*please build\s*')
+  }
 
   stages {
     stage('Checkout') {

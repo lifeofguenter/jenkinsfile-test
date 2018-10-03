@@ -23,10 +23,21 @@ pipeline {
       }
     }
 
-    stage ('Test') {
+    //stage('Test') {
+    //  steps {
+    //    helloWorld()
+    //    sh 'printenv'
+    //  }
+    //}
+
+    stage('Conditional') {
+      when {
+        expression {
+          return foobar()
+        }
+      }
       steps {
         helloWorld()
-        sh 'printenv'
       }
     }
   }

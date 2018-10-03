@@ -5,7 +5,7 @@
 pipeline {
 
   agent {
-    label 'debian-9'
+    label 'dnb'
   }
 
   options {
@@ -14,6 +14,7 @@ pipeline {
   
   triggers {
     issueCommentTrigger('\\s*please build\\s*')
+    cron('* * * * *')
   }
 
   stages {
@@ -23,12 +24,12 @@ pipeline {
       }
     }
 
-    //stage('Test') {
-    //  steps {
-    //    helloWorld()
-    //    sh 'printenv'
-    //  }
-    //}
+    stage('Test') {
+      steps {
+        helloWorld()
+        sh 'printenv'
+      }
+    }
 
     stage('Conditional') {
       when {

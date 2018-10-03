@@ -28,7 +28,7 @@ pipeline {
       steps {
         helloWorld()
         sh 'printenv'
-        foobar this
+        //foobar this
       }
     }
 

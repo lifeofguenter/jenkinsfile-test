@@ -35,7 +35,7 @@ pipeline {
     stage('Conditional') {
       when {
         expression {
-          return foobar this
+          return (foobar this)
         }
       }
       steps {

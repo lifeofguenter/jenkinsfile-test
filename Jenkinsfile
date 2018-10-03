@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('foobar@master') _
+@Library('foobar@lab') _
 
 pipeline {
 

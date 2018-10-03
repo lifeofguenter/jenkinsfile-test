@@ -14,7 +14,7 @@ pipeline {
   
   triggers {
     issueCommentTrigger('\\s*please build\\s*')
-    cron(env.BRANCH_NAME == 'master' ? '* * * * *' : '')
+    cron('* * * * *')
   }
 
   stages {

@@ -21,7 +21,7 @@ pipeline {
     stage('Prep') {
       steps {
         script {
-          if (foobar this) {
+          if (foobar(this)) {
             env.SKIP_TF = 'true'
           }
         }

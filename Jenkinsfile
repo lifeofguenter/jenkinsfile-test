@@ -18,6 +18,15 @@ pipeline {
   }
 
   stages {
+    stage('Prep') {
+      steps {
+        script {
+          if (foobar this) {
+            env.SKIP_TF = 'true'
+          }
+        }
+      }
+    }
     stage('Checkout') {
       steps {
         checkout scm

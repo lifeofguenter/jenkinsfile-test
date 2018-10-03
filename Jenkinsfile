@@ -1,3 +1,7 @@
+#!groovy
+
+@Library('foobar@master') _
+
 pipeline {
 
   agent {
@@ -21,6 +25,7 @@ pipeline {
 
     stage ('Test') {
       steps {
+        helloWorld
         sh 'printenv'
       }
     }

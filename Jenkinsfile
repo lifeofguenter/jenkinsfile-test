@@ -25,9 +25,9 @@ pipeline {
 
     stage ('Test') {
       steps {
-        helloWorld
         sh 'printenv'
       }
+      helloWorld
     }
   }
 

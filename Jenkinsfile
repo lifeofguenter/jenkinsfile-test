@@ -14,7 +14,7 @@ pipeline {
   
   triggers {
     issueCommentTrigger('\\s*please build\\s*')
-    cron('* * * * *')
+    cron('*/2 * * * *')
   }
 
   stages {

@@ -18,15 +18,6 @@ pipeline {
   }
 
   stages {
-    stage('Prep') {
-      steps {
-        script {
-          if (foobar(this)) {
-            env.SKIP_TF = 'true'
-          }
-        }
-      }
-    }
     stage('Checkout') {
       steps {
         checkout scm
@@ -37,16 +28,16 @@ pipeline {
       steps {
         helloWorld()
         sh 'printenv'
-        //foobar this
+        foobar()
       }
     }
 
     stage('Conditional') {
-      when {
-        expression {
-          return foobar(this)
-        }
-      }
+      //when {
+      //  expression {
+      //    return foobar(this)
+      //  }
+      //}
       steps {
         helloWorld()
       }

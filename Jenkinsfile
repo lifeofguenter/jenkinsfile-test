@@ -5,7 +5,7 @@
 pipeline {
 
   agent {
-    label 'dnb'
+    label 'debian-9'
   }
 
   options {

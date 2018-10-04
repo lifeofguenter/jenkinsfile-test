@@ -26,20 +26,24 @@ pipeline {
 
     stage('Test') {
       steps {
-        helloWorld()
         sh 'printenv'
-        foobar()
       }
     }
 
     stage('Conditional') {
-      //when {
-      //  expression {
-      //    return foobar(this)
-      //  }
-      //}
+      when {
+        expression {
+          return foobar()
+        }
+      }
       steps {
         helloWorld()
+      }
+    }
+
+    stage('Post') {
+      steps {
+        echo 'okey dokey'
       }
     }
   }

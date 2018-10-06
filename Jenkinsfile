@@ -1,3 +1,7 @@
+#!groovy
+
+@Library('foobar@labfoo') _
+
 pipeline {
 
   agent {
@@ -10,6 +14,7 @@ pipeline {
   
   triggers {
     issueCommentTrigger('\\s*please build\\s*')
+    //cron('*/2 * * * *')
   }
 
   stages {
@@ -19,9 +24,26 @@ pipeline {
       }
     }
 
-    stage ('Test') {
+    stage('Test') {
       steps {
         sh 'printenv'
+      }
+    }
+
+    stage('Conditional') {
+      when {
+        expression {
+          return foobar()
+        }
+      }
+      steps {
+        helloWorld()
+      }
+    }
+
+    stage('Post') {
+      steps {
+        echo 'okey dokey'
       }
     }
   }

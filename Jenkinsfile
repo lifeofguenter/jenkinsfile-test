@@ -1,3 +1,5 @@
+@Library('jenkins-pipeline-library@add-on') _
+
 pipeline {
 
   agent {
@@ -22,6 +24,13 @@ pipeline {
     stage ('Test') {
       steps {
         sh 'printenv'
+      }
+    }
+
+    stage ('On') {
+      steps {
+        on.pr("echo '[pr] hello world!'")
+        on.master("echo '[master] hello world!'")
       }
     }
   }

@@ -7,7 +7,11 @@ pipeline {
   options {
     timestamps()
   }
-  
+
+  parameters {
+    string(name: 'FOO', defaultValue: 'foo', description: 'Foobar?')
+  }
+
   triggers {
     issueCommentTrigger('\\s*please build\\s*')
   }
@@ -22,8 +26,8 @@ pipeline {
     stage ('Test') {
       steps {
         sh 'printenv'
+        echo "Hello ${params.FOO}"
       }
     }
   }
-
 }
